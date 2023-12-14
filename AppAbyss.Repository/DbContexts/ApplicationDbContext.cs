@@ -52,12 +52,14 @@ public class ApplicationDbContext : IdentityDbContext
             .HasMany(t => t.SoftwareItems)
             .WithOne(s=>s.Icon)
             .HasForeignKey(s => s.SoftwareId)
+            .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<OperatingSystemInfo>()
             .HasMany(t => t.SoftwareItems)
             .WithOne(s=>s.OperatingSystemInfo)
             .HasForeignKey(s => s.OperatingSystemId)
+            .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
 
 
@@ -70,15 +72,17 @@ public class ApplicationDbContext : IdentityDbContext
         builder.Entity<AppUser>()
             .HasMany(s => s.UserSoftwareLists)
             .WithOne(c => c.AppUser)
-            .HasForeignKey(x => x.AppUserId);
+            .HasForeignKey(x => x.AppUserId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<SoftwareList>()
             .HasOne(x => x.AppUser)
             .WithOne(z => z.FaveriteSoftwareList)
-            .HasForeignKey<AppUser>(o => o.FavoriteSoftwareListId);
+            .HasForeignKey<AppUser>(o => o.FavoriteSoftwareListId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
         
-        
-
         base.OnModelCreating(builder);
     }
 }
