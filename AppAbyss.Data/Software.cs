@@ -70,6 +70,7 @@ public class Software
     /// <remarks>
     /// This is a foreign key reference to the OperatingSystemInfo table.
     /// </remarks>
+    [Required]
     public int OperatingSystemId { get; set; }
     
     /// <summary>

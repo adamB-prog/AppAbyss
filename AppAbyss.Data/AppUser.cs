@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
@@ -12,6 +13,7 @@ public class AppUser: IdentityUser
     /// <summary>
     /// Gets or sets the ID of the favorite software list.
     /// </summary>
+    [Required]
     public int FavoriteSoftwareListId { get; set; }
     
     /// <summary>
