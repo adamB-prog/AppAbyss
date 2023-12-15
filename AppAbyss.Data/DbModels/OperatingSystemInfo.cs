@@ -24,7 +24,7 @@ public class OperatingSystemInfo
     /// <summary>
     /// Gets or sets the collection of <see cref="Software"/> items that use this operating system.
     /// </summary>
-    public ICollection<Software> SoftwareItems { get; set; }
+    public virtual ICollection<Software> SoftwareItems { get; set; }
     
     /// <summary>
     /// Initializes a new instance of the <see cref="OperatingSystemInfo"/> class.

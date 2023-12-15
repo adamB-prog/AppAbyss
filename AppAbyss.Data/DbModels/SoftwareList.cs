@@ -30,7 +30,7 @@ public class SoftwareList
     /// Gets or sets the ID of the user that owns this software list.
     /// </summary>
     [Required]
-    public int AppUserId { get; set; }
+    public string AppUserId { get; set; }
     
     /// <summary>
     /// Gets or sets the user that owns this software list.

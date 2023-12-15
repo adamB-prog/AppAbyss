@@ -29,7 +29,7 @@ public class Icon
     /// <summary>
     /// Gets or sets the collection of <see cref="Software"/> items that use this icon.
     /// </summary>
-    public ICollection<Software> SoftwareItems { get; set; }
+    public virtual ICollection<Software> SoftwareItems { get; set; }
     
     /// <summary>
     /// Initializes a new instance of the <see cref="Icon"/> class.

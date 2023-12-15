@@ -11,18 +11,6 @@ public class AppUser: IdentityUser
 {
     
     /// <summary>
-    /// Gets or sets the ID of the favorite software list.
-    /// </summary>
-    [Required]
-    public int FavoriteSoftwareListId { get; set; }
-    
-    /// <summary>
-    /// Gets or sets the favorite software list.
-    /// </summary>
-    [ForeignKey("FavoriteSoftwareListId")]
-    public virtual SoftwareList FaveriteSoftwareList { get; set; }
-    
-    /// <summary>
     /// Gets or sets the collection of <see cref="SoftwareList"/> items for this user.
     /// </summary>
     public virtual ICollection<SoftwareList> UserSoftwareLists { get; set; }
