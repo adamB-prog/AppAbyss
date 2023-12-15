@@ -75,13 +75,6 @@ public class ApplicationDbContext : IdentityDbContext
             .HasForeignKey(x => x.AppUserId)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
-
-        builder.Entity<SoftwareList>()
-            .HasOne(x => x.AppUser)
-            .WithOne(z => z.FaveriteSoftwareList)
-            .HasForeignKey<AppUser>(o => o.FavoriteSoftwareListId)
-            .IsRequired()
-            .OnDelete(DeleteBehavior.Cascade);
         
         base.OnModelCreating(builder);
     }
