@@ -19,14 +19,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         .UseLazyLoadingProxies();
 });
 
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
-    builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+    app.UseSwaggerUI(); ;
 }
 
 app.UseHttpsRedirection();
