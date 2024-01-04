@@ -98,6 +98,7 @@ public class AuthController : ControllerBase
     /// </returns>
     /// <response code="200">Return a JWT token</response>
     /// <response code="400">Return an error message</response>
+    /// <response code="401">Return an unauthorized message</response>
     /// <response code="500">Server error</response>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK)]
