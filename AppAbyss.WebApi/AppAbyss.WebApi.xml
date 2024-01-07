@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AppAbyss.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:AppAbyss.WebApi.Controllers.AuthController">
+            <summary>
+            This controller handles the authorisation functions.
+            </summary>
+        </member>
+        <member name="M:AppAbyss.WebApi.Controllers.AuthController.#ctor(Microsoft.AspNetCore.Identity.UserManager{AppAbyss.Data.AppUser},Microsoft.Extensions.Logging.ILogger{AppAbyss.WebApi.Controllers.AuthController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:AppAbyss.WebApi.Controllers.AuthController"/> class.
+            </summary>
+            <param name="userManager">The user manager used to manage user data.</param>
+            <param name="logger">The logger used to log errors and information.</param>
+            <exception cref="T:System.ArgumentNullException"> Thrown if the provided UserManager or logger instance is null.</exception>
+        </member>
+        <member name="M:AppAbyss.WebApi.Controllers.AuthController.Register(AppAbyss.Data.Dtos.Auth.RegisterDto)">
+            <summary>
+            Handles the user registration process.
+            </summary>
+            <param name="registerDto">The <see cref="T:AppAbyss.Data.Dtos.Auth.RegisterDto"/> containing user registration information.</param>
+            <returns>
+            It returns an HTTP 200 OK response if the registration data is valid and the registration is successful, otherwise it returns an HTTP 400 Bad Request response with the validation errors.
+            </returns>
+            <response code="200">Return a JWT token</response>
+            <response code="400">Return an error message</response>
+            <response code="500">Server error</response>
+        </member>
+        <member name="M:AppAbyss.WebApi.Controllers.AuthController.Login(AppAbyss.Data.Dtos.Auth.LoginDto)">
+            <summary>
+            Handles the user login process.
+            </summary>
+            <param name="loginModel">The <see cref="T:AppAbyss.Data.Dtos.Auth.LoginDto"/> containing user login credentials.</param>
+            <returns>
+            It returns an HTTP 200 OK response with a JWT token If the login credentials are valid, otherwise it return an HTTP 400 or 500 response.
+            </returns>
+            <response code="200">Return a JWT token</response>
+            <response code="400">Return an error message</response>
+            <response code="401">Return an unauthorized message</response>
+            <response code="500">Server error</response>
+        </member>
+    </members>
+</doc>
