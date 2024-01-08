@@ -1,0 +1,11 @@
+<p
+  *ngIf="this.authCheckerService.isLoggedIn()"
+>
+  logged in!
+</p>
+
+<p
+  *ngIf="!this.authCheckerService.isLoggedIn()"
+>
+  logged out!
+</p>
