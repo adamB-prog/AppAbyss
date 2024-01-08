@@ -1,0 +1,36 @@
+<nav>
+  <button
+    mat-stroked-button
+    routerLink="/home"
+  >
+    Home
+  </button>
+
+  <button
+    mat-stroked-button
+    color="primary"
+    routerLink="/login"
+    *ngIf="!this.authCheckerService.isLoggedIn()"
+  >
+    Login
+  </button>
+
+  <button
+    mat-stroked-button
+    color="accent"
+    routerLink="/register"
+    *ngIf="!this.authCheckerService.isLoggedIn()"
+  >
+    Register
+  </button>
+
+  <button
+    mat-stroked-button
+    color="primary"
+    (click)="this.removeItemsFromLocalStore()"
+    *ngIf="this.authCheckerService.isLoggedIn()"
+  >
+    Logout
+  </button>
+
+</nav>
