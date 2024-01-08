@@ -1,0 +1,54 @@
+<form id="regForm" [formGroup]="registerFormGroup">
+  <h1>Registration</h1>
+  <mat-form-field class="">
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName = "email"
+      [errorStateMatcher]="matcher"
+      placeholder="Ex. pat@example.com">
+    <mat-error *ngIf="errorTextChecker.isFormGroupFieldValid(registerFormGroup, 'email', 'email')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="errorTextChecker.isFormGroupFieldEmpty(registerFormGroup, 'email')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>User Name</mat-label>
+    <input type="text"
+           matInput
+           formControlName = "username"
+           [errorStateMatcher]="matcher"
+           placeholder="Ex. bobsmith66">
+    <mat-error *ngIf="errorTextChecker.isFormGroupFieldValid(registerFormGroup, 'username', 'minlength')">
+      Minimum length of the field is 3 characters
+    </mat-error>
+    <mat-error *ngIf="errorTextChecker.isFormGroupFieldEmpty(registerFormGroup, 'username')">
+      User name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input type="password"
+           matInput
+           formControlName = "password"
+           [errorStateMatcher]="matcher"
+           placeholder="Ex. Bobsmith66">
+    <mat-error *ngIf="errorTextChecker.isFormGroupFieldValid(registerFormGroup, 'password', 'minlength')">
+      Minimum length of the field is 8 characters
+    </mat-error>
+    <mat-error *ngIf="errorTextChecker.isFormGroupFieldEmpty(registerFormGroup, 'password')">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+
+  <button mat-flat-button color="primary"
+          [disabled] = "!formSubmitValidate.validateFormGroup(registerFormGroup)"
+          (click)="SubmitRegister()"
+  >Submit</button>
+</form>
