@@ -73,6 +73,15 @@ builder.Services.AddAuthentication(option =>
     };
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddEndpointsApiExplorer();
 
@@ -90,7 +99,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseCors();
 app.MapControllers();
 
 app.Run();

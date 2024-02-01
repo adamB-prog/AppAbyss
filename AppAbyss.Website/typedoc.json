@@ -1,0 +1,9 @@
+{
+  "entryPoints": ["src/app/app.module.ts"],
+  "out": "docs",
+  "name": "Your Angular Project",
+  "exclude": ["**/*.spec.ts"],
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "excludeProtected": true
+}

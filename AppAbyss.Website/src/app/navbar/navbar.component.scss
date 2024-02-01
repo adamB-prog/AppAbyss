@@ -1,0 +1,48 @@
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7; // light gray background for contrast
+  padding: 10px 0;
+  margin-bottom: 3em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // subtle shadow for depth
+
+  button {
+    margin: 0 15px; // space between buttons
+    font-size: 16px; // slightly larger text for better readability
+    padding: 8px 20px; // more pronounced padding for a better click target
+    transition: all 0.3s ease; // smooth transitions on hover
+
+    &:hover {
+      transform: translateY(-2px); // slight lift on hover
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); // subtle shadow for depth on hover
+    }
+
+    &[color="warn"] {
+      border-color: #f44336; // Red border for warn
+      color: #f44336;
+
+      &:hover {
+        background-color: rgba(244, 67, 54, 0.1); // subtle red background on hover
+      }
+    }
+
+    &[color="primary"] {
+      border-color: #007bff; // Blue border for primary
+      color: #007bff;
+
+      &:hover {
+        background-color: rgba(0, 123, 255, 0.1); // subtle blue background on hover
+      }
+    }
+
+    &[color="accent"] {
+      border-color: #ff4081; // Pink border for accent
+      color: #ff4081;
+
+      &:hover {
+        background-color: rgba(255, 64, 129, 0.1); // subtle pink background on hover
+      }
+    }
+  }
+}

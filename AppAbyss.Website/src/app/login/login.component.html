@@ -1,0 +1,40 @@
+<form id="loginForm" [formGroup]="loginFormGroup">
+  <h1>Login</h1>
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input type="text"
+           matInput
+           formControlName = "username"
+           [errorStateMatcher]="matcher"
+           placeholder="Ex. bobsmith66">
+    <mat-error *ngIf="errorTextChecker.isFormGroupFieldValid(loginFormGroup, 'username', 'minlength')">
+      Minimum length of the field is 3 characters
+    </mat-error>
+    <mat-error *ngIf="errorTextChecker.isFormGroupFieldEmpty(loginFormGroup, 'username')">
+      User name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input type="password"
+           matInput
+           formControlName = "password"
+           [errorStateMatcher]="matcher"
+           placeholder="Ex. Bobsmith66">
+    <mat-error *ngIf="errorTextChecker.isFormGroupFieldValid(loginFormGroup, 'password', 'minlength')">
+      Minimum length of the field is 8 characters
+    </mat-error>
+    <mat-error *ngIf="errorTextChecker.isFormGroupFieldEmpty(loginFormGroup, 'password')">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="SubmitLogin()"
+    [disabled] = "!formSubmitValidate.validateFormGroup(loginFormGroup)"
+  >Login</button>
+</form>
